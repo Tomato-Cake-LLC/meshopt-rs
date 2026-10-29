@@ -55,6 +55,8 @@ fn main() {
         // our own stripped down headers to provide the few
         // functions needed via LLVM intrinsics.
         build.flag("-isystem").flag("include_wasm32");
+        // No C++ runtime: operator new and delete come from Rust (src/wasm32_alloc.rs).
+        build.file("src/wasm32_new_delete.cpp");
         // The Wasm backend needs a compatible ar
         // which will most likely be available under
         // this name on Windows, via manual LLVM install

@@ -97,6 +97,8 @@ pub mod spatial;
 pub mod stripify;
 pub mod tangents;
 pub mod utilities;
+#[cfg(target_arch = "wasm32")]
+mod wasm32_alloc;
 
 #[cfg(not(target_arch = "wasm32"))]
 pub use crate::clusterlod::*;
